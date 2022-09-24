@@ -1,4 +1,5 @@
 <?php
+
 require_once('Connection.php');
 
 if (isset($_POST['submitform'])) {
@@ -10,8 +11,8 @@ if (isset($_POST['submitform'])) {
     $sql = "INSERT INTO `patients`(`patientName`, `patientAge`, `patientAddress`)
  VALUES ('$pName','$pAge','$pAddress')";
     if ($con->query($sql) === TRUE) {
-        require_once('index.php');
-
+        header("Location: ./index.php");
+        die();
         echo "Patient Successfully Added";
     } else {
         echo "Something Went Wrong";
